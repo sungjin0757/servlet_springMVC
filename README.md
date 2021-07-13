@@ -15,3 +15,16 @@
     - 회원 저장
     - findById
     - findAll
+
+### 1. 오직 Servlet으로만 request와 response 관리
+HttpServletRequest로 파라미터를 받아온 뒤 HttpServletResponse로 곧바로 Html을 응답
+즉, 별도의 view가 없는 자바코드로만 구성
+- package : onlyservlet
+	- MemberFormServlet.java
+		- MemberForm을 곧 바로 response
+	- MemberListServlet.java
+		- MemberService로 부터 Member를 저장한 후 저장 결과를 response
+	- MemberSaveServlet.java		
+		- MemberService로부터 List<Member>를 불러온 후 이를 response
+- 정리 : 자바코드로만 모든 것을 다 하다보니 복잡. 발전할 필요가 있음!
+

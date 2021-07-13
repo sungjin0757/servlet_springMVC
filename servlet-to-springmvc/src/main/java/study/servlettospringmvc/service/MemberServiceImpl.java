@@ -15,6 +15,7 @@ public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepository;
 
+
     @Transactional
     @Override
     public Long join(Member member) {
@@ -31,4 +32,6 @@ public class MemberServiceImpl implements MemberService{
     public List<Member> findAll() {
         return memberRepository.findAll();
     }
+
+    
 }

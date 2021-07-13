@@ -1,4 +1,4 @@
-package study.servlettospringmvc.onlyservlet;
+package study.servlettospringmvc.onlyservlet.members;
 
 import lombok.RequiredArgsConstructor;
 import study.servlettospringmvc.respository.MemberRepository;
@@ -11,11 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name="saveFormServlet",urlPatterns = "/onlyservlet/member-form")
-@RequiredArgsConstructor
-public class SaveFormServlet extends HttpServlet {
-
-    private final MemberRepository memberRepository;
+@WebServlet(name="memberFormServlet",urlPatterns = "/onlyservlet/member-form")
+public class MemberFormServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
