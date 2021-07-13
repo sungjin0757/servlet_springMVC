@@ -1,7 +1,6 @@
 # 본래의 자바 서블릿 부터 스프링MVC 까지 Study
 
-## <span style="color:lightpink;">주된 목적은 servlet에서 부터 어떻게 스프링 MVC까지 구성되었나
-살펴 보는 것!</span>
+## 주된 목적은 servlet에서 부터 어떻게 스프링 MVC까지 구성되었나살펴 보는 것!</span>
 
 - **SO!**
   - 간단히 JPA를 사용
