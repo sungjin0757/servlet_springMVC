@@ -6,8 +6,9 @@
  <title>members</title>
 </head>
 <body>
+<center>
 <a href="/index.html">메인</a>
-<table>
+<table border="1">
  <thead>
  <th>id</th>
  <th>username</th>
@@ -16,11 +17,12 @@
  <tbody>
  <c:forEach var="item" items="${members}">
  <tr> <td>${item.id}</td>
- <td>${item.userName}</td>
+ <td>${item.username}</td>
  <td>${item.age}</td>
  </tr>
  </c:forEach>
  </tbody>
 </table>
+</center>
 </body>
 </html>

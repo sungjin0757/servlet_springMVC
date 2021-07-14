@@ -5,12 +5,17 @@
  <title>save-success</title>
 </head>
 <body>
-
-<ul>
- <li>id=${member.id}</li>
- <li>username=${member.userName}</li>
- <li>age=${member.age}</li>
-</ul>
+<center>
+<div>
+ <span>id=${member.id}</span>
+</div>
+<div>
+ <span>이름=${member.username}</span>
+</div>
+<div>
+ <span>나이=${member.age}</span>
+</div>
 <button onclick="location.href='/index.html'" type="button">목록으로</button>
+</center>
 </body>
 </html>
