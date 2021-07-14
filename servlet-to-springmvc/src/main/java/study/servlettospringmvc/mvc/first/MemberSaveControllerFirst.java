@@ -1,6 +1,7 @@
 package study.servlettospringmvc.mvc.first;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import study.servlettospringmvc.domain.Member;
 import study.servlettospringmvc.service.MemberService;
 
@@ -12,13 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name="memberSaveControllerFirst",urlPatterns = "/mvc/first/save")
 @RequiredArgsConstructor
-public class MemberSaveControllerFirst extends HttpServlet {
+public class MemberSaveControllerFirst implements ControllerFirst {
     private final MemberService memberService;
 
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         int age = Integer.parseInt(request.getParameter("age"));
 
@@ -32,4 +32,5 @@ public class MemberSaveControllerFirst extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/save-success.jsp");
         dispatcher.forward(request,response);
     }
+
 }

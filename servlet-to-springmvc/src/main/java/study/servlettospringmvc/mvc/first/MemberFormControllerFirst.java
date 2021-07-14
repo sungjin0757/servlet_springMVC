@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name="memberFormControllerFirst",urlPatterns = "/mvc/first/member-form")
-public class MemberFormControllerFirst extends HttpServlet {
-
+public class MemberFormControllerFirst extends HttpServlet implements ControllerFirst{
 
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/member-form.jsp");
         dispatcher.forward(request,response);
     }
+
+
 }
