@@ -12,12 +12,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @WebServlet(name="frontControllerFirst",urlPatterns = "/front-controller/first/*")
-public class FrontControllerFirst extends HttpServlet {
+public class MyDispatcherServletFirst extends HttpServlet {
 
     private Map<String,ControllerFirst> urlMap=new HashMap<>();
-    private MemberService memberService;
+    private final MemberService memberService;
 
-    public FrontControllerFirst(MemberService memberService) {
+    public MyDispatcherServletFirst(MemberService memberService) {
         this.memberService=memberService;
         urlMap.put("/front-controller/first/member-form",new MemberFormControllerFirst());
         urlMap.put("/front-controller/first/save",new MemberSaveControllerFirst(this.memberService));
@@ -30,6 +30,7 @@ public class FrontControllerFirst extends HttpServlet {
 
         if(controller==null){
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            return;
         }
         controller.process(request, response);
     }
