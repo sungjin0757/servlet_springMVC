@@ -72,3 +72,20 @@ DispathcherServlet가 Client의 요청에 따라 Controller들을 호출.
 	**BUT,** 많은 발전을 이뤘지만 아직 여전히 많은 문제점
 		1. viewPath를 넘겨줄 때 "/WEB-INF/views/save-success.jsp" 이렇게 귀찮게 다 써줘야하나의 문제
 		2. 아직도 Controller 마다 잘 사용하지 않을 수도 있는 HttpServletRequest, HttpServletResponse 객체를 매개변수로서 꼭 갖고 있음.
+
+### 4. **src.main.java.study.servlettospringmvc.mvc.third 패키지에 코드 있습니다:)** 
+	- 3번에서의 문제점 
+		1. viewPath를 넘겨줄 때 "/WEB-INF/views/save-success.jsp"의 귀찮음을 viewResolver로 해결
+		2. Controller 마다 잘 사용하지 않을 수도 있는 HttpServletRequest, HttpServletResponse 객체를 매개변수로서 갖고있는 문제를 model을 따로 만들어서 해결
+- MyViewResolver **src.main.java.study.servlettospringmvc.mvc 패키지에 코드 있습니다:)** 
+	- 다형성을 위해 인터페이스 활용. (여기서는 MyViewResolverImpl을 구현체로서 빈으로 등록하여 좋은 객체지향 설계인 OCP 및 DIP의 규칙을 지킴)
+	- controller들이 view의 name만 매개변수로 넘겨주게 되면 해당하는 JSP파일의 name을 갖도록 설정
+- MyModel
+	- view의 name 과 request.setattribute()에 모델을 담기 위한 Map저장소를 멤버로 가짐
+	- 동작 과정
+		1. request가 들어오면 DispatcherServlet이 Model의 파라미터에 맞게끔 request의 정보를 Mapping.
+		2. request가 Mapping된 파라미터를 Controller에게 넘김.
+		3. Controller들은 파라미터를 가지고 동작 실행.
+		4. Controller들은 MyModel 객체에 ViewName과 Model을 지정해주어 반환.
+	- **HttpServletRequest의 객체는 단지 DispatcherServlet에서 Mapping 시켜 Controller들에게 넘기므로 이제는 Controller들이 필요없는 인자를 가질 필요가 없게 됨!**
+- 정리 : 이제는 어느정도 훌륭한 발전을 이룬 MVC FrameWork로서 동작! Spring의 HandlerAdapter및 HandlerMapping 기능만 추가된다면 거의 Spring의 MVC 와 유사할 정도..(유사? 아주 미미하지만..))
