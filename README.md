@@ -7,7 +7,7 @@
   - domain : **<a href="https://github.com/sungjin0757/servlet_springMVC/blob/master/servlet-to-springmvc/src/main/java/study/servlettospringmvc/domain/Member.java">CODE</a>**
     - Member Entity만 구성
       username, age로만 client의 요청을 다뤄볼 것!
-  - repository : **<a href="https://github.com/sungjin0757/servlet_springMVC/blob/master/servlet-to-springmvc/src/main/java/study/servlettospringmvc/repository/MemberRepository.java">CODE</a>**
+  - repository : **<a href="https://github.com/sungjin0757/servlet_springMVC/blob/master/servlet-to-springmvc/src/main/java/study/servlettospringmvc/respository/MemberRepository.java">CODE</a>**
     - 회원 저장
     - findById
     - findAll
