@@ -1,4 +1,11 @@
 package study.servlettospringmvc.mvc.fourth;
 
-public class MemberFormControllerFourth {
+import java.util.Map;
+
+public class MemberFormControllerFourth implements ControllerFourth{
+
+    @Override
+    public String process(Map<String, String> paramModel,Map<String,Object> model) {
+        return "member-form";
+    }
 }
