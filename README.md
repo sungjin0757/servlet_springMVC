@@ -89,3 +89,11 @@ DispathcherServlet가 Client의 요청에 따라 Controller들을 호출.
 		4. Controller들은 MyModel 객체에 ViewName과 Model을 지정해주어 반환.
 	- **HttpServletRequest의 객체는 단지 DispatcherServlet에서 Mapping 시켜 Controller들에게 넘기므로 이제는 Controller들이 필요없는 인자를 가질 필요가 없게 됨!**
 - 정리 : 이제는 어느정도 훌륭한 발전을 이룬 MVC FrameWork로서 동작! Spring의 HandlerAdapter및 HandlerMapping 기능만 추가된다면 거의 Spring의 MVC 와 유사할 정도..(유사? 아주 미미하지만..))
+
+### 5. <a href="https://github.com/sungjin0757/servlet_springMVC/tree/master/servlet-to-springmvc/src/main/java/study/servlettospringmvc/mvc/fourth">CODE</a>
+4번에서의 컨트롤러마다 Model을 직접 만들어 반환하는 번거로움 해결
+- 반환 시 Model을 반환하는 것이 아닌 그냥 ViewName만 반환하도록 설정.
+- 대신 파라미터가 하나 더 추가
+	- DispathcerServlet에서 보낸 요청 정보를 처리하고 나서 담을 Map<String,Object>형식의 파라미터
+- 동작은 4번과 거의 동일.
+- 정리 : 이제는 어느정도만 번거로움을 해결하거나, 추가 Controller를 구현한다거나 MVC 패턴 외에것만 신경써줘도 될 단계! MVC 패턴은 거의 구현완료라고 볼 수 있음.
