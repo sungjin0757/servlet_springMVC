@@ -97,3 +97,15 @@ DispathcherServlet가 Client의 요청에 따라 Controller들을 호출.
 	- DispathcerServlet에서 보낸 요청 정보를 처리하고 나서 담을 Map<String,Object>형식의 파라미터
 - 동작은 4번과 거의 동일.
 - 정리 : 이제는 어느정도만 번거로움을 해결하거나, 추가 Controller를 구현한다거나 MVC 패턴 외에것만 신경써줘도 될 단계! MVC 패턴은 거의 구현완료라고 볼 수 있음.
+
+### 6. <a href="https://github.com/sungjin0757/servlet_springMVC/tree/master/servlet-to-springmvc/src/main/java/study/servlettospringmvc/mvc/complete">CODE</a>
+- **순수 자바로 Spring MVC패턴 개발의 마지막 단계**
+	1. Spring MVC에서는 DispatcherServlet에 도달하게 되면 handler(controller)의 리스트 조회
+	2. 조회된 handler를 실행할 수 있는 handler adapter를 찾은 후 
+	3. adapter가 handler 실행
+	- 이 과정을 추가!
+- 즉, 지금 까지 1,2,3,4,5번까지에 걸쳐 각기 다른 버전의 Handler(Controller)를 만들었으며 이 handler를 실행시키기 위한 handler adapter를 개발하면 되는 상황이었음
+- MyHandlerAdapter
+	- supports : 이 핸들러 어댑터가 Client가 요청한 handler를 실행할 수 있는지 확인하는 과정
+	- handle : handler 실행하는 과정
+- 정리 : Spring MVC의 기본 구조를 순수한 자바로 구현 완료. (물론 기능은 많지 않지만! 돌아가는 메커니즘은 다 따라간 상황!!)
