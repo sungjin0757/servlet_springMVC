@@ -20,10 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @WebServlet(name="myDispatcherServletComplete",urlPatterns = "/dispatcherservlet/complete/*")
 public class MyDispatcherServletComplete extends HttpServlet {
@@ -68,11 +65,11 @@ public class MyDispatcherServletComplete extends HttpServlet {
     }
 
     private MyHandlerAdapter getAdapter(Object handler){
-        for(MyHandlerAdapter adapter:myHandlerAdapters){
-            if(adapter.supports(handler))
-                return adapter;
-        }
+        Optional<MyHandlerAdapter> adapter = myHandlerAdapters.stream().filter(a -> a.supports(handler)).findFirst();
+        if(adapter.isEmpty())
+            throw new IllegalArgumentException("handler adapter를 찾을 수 없습니다"+handler);
+        else
+            return adapter.get();
 
-        throw new IllegalArgumentException("handler adapter를 찾을 수 없습니다"+handler);
     }
 }
